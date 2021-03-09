@@ -1,5 +1,7 @@
 import express, { NextFunction, Request, Response } from "express"
 import routerPost from "./routes/routerUsers";
+require('dotenv').config();
+const PORT = process.env.PORT;
 
 const app = express();
 
@@ -17,4 +19,4 @@ app.use((err:Error, req:Request, res:Response, next:NextFunction) => {
   res.status(500).send({ error: `${err} ou algum erro interno` });
 });
 
-app.listen(3000, () => console.log("hello model"));
+app.listen(PORT, () => console.log("hello model"));
